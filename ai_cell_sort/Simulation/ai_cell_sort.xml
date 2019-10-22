@@ -1,0 +1,57 @@
+<CompuCell3D Revision="20190430" Version="3.7.9">
+   
+   <Potts>
+      
+      <!-- Basic properties of CPM (GGH) algorithm -->
+      <Dimensions x="256" y="256" z="1"/>
+      <Steps>10000</Steps>
+      <Temperature>10.0</Temperature>
+      <NeighborOrder>1</NeighborOrder>
+   </Potts>
+   
+   <Plugin Name="CellType">
+      
+      <!-- Listing all cell types in the simulation -->
+      <CellType TypeId="0" TypeName="Medium"/>
+      <CellType TypeId="1" TypeName="dark"/>
+      <CellType TypeId="2" TypeName="light"/>
+   </Plugin>
+   
+   <Plugin Name="Volume">
+      <VolumeEnergyParameters CellType="dark" LambdaVolume="2.0" TargetVolume="25"/>
+      <VolumeEnergyParameters CellType="light" LambdaVolume="2.0" TargetVolume="25"/>
+   </Plugin>
+   
+   <Plugin Name="CenterOfMass">
+      
+      <!-- Module tracking center of mass of each cell -->
+   </Plugin>
+   
+   <Plugin Name="NeighborTracker">
+      
+      <!-- Module tracking neighboring cells of each cell -->
+   </Plugin>
+   
+   <Plugin Name="Contact">
+      <!-- Specification of adhesion energies -->
+      <Energy Type1="Medium" Type2="Medium">10.0</Energy>
+      <Energy Type1="Medium" Type2="dark">16.0</Energy>
+      <Energy Type1="Medium" Type2="light">16.0</Energy>
+      <Energy Type1="dark" Type2="dark">2.0</Energy>
+      <Energy Type1="dark" Type2="light">11.0</Energy>
+      <Energy Type1="light" Type2="light">14.0</Energy>
+      <NeighborOrder>1</NeighborOrder>
+   </Plugin>
+   
+   <Steppable Type="BlobInitializer">
+      
+      <!-- Initial layout of cells in the form of spherical (circular in 2D) blob -->
+      <Region>
+         <Center x="128" y="128" z="0"/>
+         <Radius>112</Radius>
+         <Gap>0</Gap>
+         <Width>5</Width>
+         <Types>dark,light</Types>
+      </Region>
+   </Steppable>
+</CompuCell3D>

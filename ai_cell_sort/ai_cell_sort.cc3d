@@ -1,0 +1,5 @@
+<Simulation version="3.6.2">
+   <XMLScript Type="XMLScript">Simulation/ai_cell_sort.xml</XMLScript>
+   <PythonScript Type="PythonScript">Simulation/ai_cell_sort.py</PythonScript>
+   <Resource Type="Python">Simulation/ai_cell_sortSteppables.py</Resource>
+</Simulation>
