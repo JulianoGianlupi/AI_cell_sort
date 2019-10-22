@@ -1,5 +1,5 @@
 
-import numpy as np
+
 global G_lambdaVol_light_G, G_targetVol_light_G
 global G_lambdaVol_dark_G, G_targetVol_dark_G
 global G_J0_G
@@ -75,10 +75,12 @@ G_J_dm_G = G_J_lm_G
 
 G_interact_range_G = 1
 
+#print '=================\n before config \n ==================='
+
 def configureSimulation(sim):
     import CompuCellSetup
     from XMLUtils import ElementCC3D
-    
+    from numpy import sqrt as nsqrt
     
     
     CompuCell3DElmnt=ElementCC3D("CompuCell3D",{"Revision":"20190430","Version":"3.7.9"})
@@ -87,34 +89,53 @@ def configureSimulation(sim):
     PottsElmnt.ElementCC3D("Dimensions",{"x":"256","y":"256","z":"1"})
     PottsElmnt.ElementCC3D("Steps",{},"50000")
     PottsElmnt.ElementCC3D("Temperature",{},"10.0")
+#     PottsElmnt.ElementCC3D("NeighborOrder",{},"1")
     PottsElmnt.ElementCC3D("NeighborOrder",{},str(G_interact_range_G))
     
+    #print '=================\n potts \n ==================='
     
     PluginElmnt=CompuCell3DElmnt.ElementCC3D("Plugin",{"Name":"CellType"})
     PluginElmnt.ElementCC3D("CellType",{"TypeId":"0","TypeName":"Medium"})
     PluginElmnt.ElementCC3D("CellType",{"TypeId":"1","TypeName":"dark"})
     PluginElmnt.ElementCC3D("CellType",{"TypeId":"2","TypeName":"light"})
     
+    #print '=================\n cell type \n ==================='
     
     PluginElmnt_1=CompuCell3DElmnt.ElementCC3D("Plugin",{"Name":"Volume"})
     PluginElmnt_1.ElementCC3D("VolumeEnergyParameters",{"CellType":"dark",
+#                                                         "LambdaVolume":"2",
+#                                                         "TargetVolume":"25"})
                                                         "LambdaVolume":str(G_lambdaVol_dark_G),
                                                         "TargetVolume":str(G_targetVol_dark_G)})
     PluginElmnt_1.ElementCC3D("VolumeEnergyParameters",{"CellType":"light",
+#                                                         "LambdaVolume":"2",
+#                                                         "TargetVolume":"25"})
                                                         "LambdaVolume":str(G_lambdaVol_light_G),
                                                         "TargetVolume":str(G_targetVol_light_G)})
+    
+    #print '=================\n volume \n ==================='
     CompuCell3DElmnt.ElementCC3D("Plugin",{"Name":"CenterOfMass"})
     CompuCell3DElmnt.ElementCC3D("Plugin",{"Name":"NeighborTracker"})
-    
+    #print '=================\n cm + neig \n ==================='
     
     PluginElmnt_2=CompuCell3DElmnt.ElementCC3D("Plugin",{"Name":"Contact"})
     PluginElmnt_2.ElementCC3D("Energy",{"Type1":"Medium","Type2":"Medium"},"10.0")
+#     PluginElmnt_2.ElementCC3D("Energy",{"Type1":"Medium","Type2":"dark"},"10.0")
+#     PluginElmnt_2.ElementCC3D("Energy",{"Type1":"Medium","Type2":"light"},"10.0")
+#     PluginElmnt_2.ElementCC3D("Energy",{"Type1":"dark","Type2":"dark"},"10.0")
+#     PluginElmnt_2.ElementCC3D("Energy",{"Type1":"dark","Type2":"light"},"10.0")
+#     PluginElmnt_2.ElementCC3D("Energy",{"Type1":"light","Type2":"light"},"10.0")
+#     PluginElmnt_2.ElementCC3D("NeighborOrder",{},"1")
+#     #print '=================\n contact \n ==================='
+    
     PluginElmnt_2.ElementCC3D("Energy",{"Type1":"Medium","Type2":"dark"},str(G_J_dm_G))
     PluginElmnt_2.ElementCC3D("Energy",{"Type1":"Medium","Type2":"light"},str(G_J_lm_G))
     PluginElmnt_2.ElementCC3D("Energy",{"Type1":"dark","Type2":"dark"},str(G_J_dd_G))
     PluginElmnt_2.ElementCC3D("Energy",{"Type1":"dark","Type2":"light"},str(G_J_dl_G))
     PluginElmnt_2.ElementCC3D("Energy",{"Type1":"light","Type2":"light"},str(G_J_ll_G))
     PluginElmnt_2.ElementCC3D("NeighborOrder",{},str(G_interact_range_G))
+    
+    
     # G_J_ll_G 
     # G_J_dd_G 
     # G_J_dl_G 
@@ -126,13 +147,16 @@ def configureSimulation(sim):
     RegionElmnt.ElementCC3D("Center",{"x":"128","y":"128","z":"0"})
     RegionElmnt.ElementCC3D("Radius",{},"112")
     RegionElmnt.ElementCC3D("Gap",{},"0")
-    RegionElmnt.ElementCC3D("Width",{},str(int(round(np.sqrt(G_targetVol_light_G)))))
+#     RegionElmnt.ElementCC3D("Width",{},"10")
+    RegionElmnt.ElementCC3D("Width",{},str(int(round(nsqrt(G_targetVol_light_G)))))
     RegionElmnt.ElementCC3D("Types",{},"dark,light")
-
+    
+    #print '=================\n blob \n ==================='
+    
     CompuCellSetup.setSimulationXMLDescription(CompuCell3DElmnt)    
     
 
-
+#print '=================\n before config 2\n ==================='
 import sys
 from os import environ
 from os import getcwd
@@ -142,23 +166,24 @@ sys.path.append(environ["PYTHON_MODULE_PATH"])
 
 
 import CompuCellSetup
-
+#print '=================\n before config 3 \n ==================='
 
 sim,simthread = CompuCellSetup.getCoreSimulationObjects()
-        
+#print '=================\n before config 3.5 \n ==================='        
 # add extra attributes here
-        
+configureSimulation(sim)              
 CompuCellSetup.initializeSimulationObjects(sim,simthread)
 # Definitions of additional Python-managed fields go here
-        
+#print '=================\n before config 4\n ==================='       
+#print '=================\n before steppable \n ==================='
 #Add Python steppables here
 steppableRegistry=CompuCellSetup.getSteppableRegistry()
-        
+#print '=================\n before steppable 2\n ==================='        
 from ai_cell_sortSteppables import ai_cell_sortSteppable
 steppableInstance=ai_cell_sortSteppable(sim,_frequency=1)
 steppableRegistry.registerSteppable(steppableInstance)
         
-
+#print '=================\n before steppable 3\n ==================='
 from ai_cell_sortSteppables import save_data
 instanceOfsave_data=save_data(_simulator=sim,_frequency=10,
                               _targetVol_light = G_targetVol_light_G,
@@ -175,9 +200,9 @@ instanceOfsave_data=save_data(_simulator=sim,_frequency=10,
                               _big_d = G_big_d_G,
                               _small_d = G_small_d_G)
 
-
+#print '=================\n before steppable 4\n ==================='
 steppableRegistry.registerSteppable(instanceOfsave_data)
-
+#print '=================\n before steppable 5\n ==================='
 CompuCellSetup.mainLoop(sim,simthread,steppableRegistry)
         
         
