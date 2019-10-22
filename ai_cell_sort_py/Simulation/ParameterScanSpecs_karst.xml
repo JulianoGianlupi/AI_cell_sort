@@ -1,0 +1,29 @@
+<ParameterScan version="3.7.0">
+   <OutputDirectory>/N/u/jferrari/Karst/CC3DWorkSpace/simpleForce_Boids</OutputDirectory>
+   <ParameterList Resource="Simulation/ai_cell_sort.py">
+      <Parameter CurrentIteration="0" Name="G_repeat_G" Type="PYTHON_GLOBAL" ValueType="int">
+         <Values>0,1,2,3,4,5,6,7,8,9</Values>
+      </Parameter>
+      <Parameter CurrentIteration="0" Name="G_targetVol_light_G" Type="PYTHON_GLOBAL" ValueType="float">
+         <Values>8.0,22.0,36.0,50.0,64.0</Values>
+      </Parameter>
+      <Parameter CurrentIteration="0" Name="G_lambdaVol_light_G" Type="PYTHON_GLOBAL" ValueType="float">
+         <Values>2.0,9.5,17.0,24.5,32.0</Values>
+      </Parameter>
+      <Parameter CurrentIteration="0" Name="G_lambdaVol_dark_G" Type="PYTHON_GLOBAL" ValueType="float">
+         <Values>2.0,9.5,17.0,24.5,32.0</Values>
+      </Parameter>
+      <Parameter CurrentIteration="0" Name="G_big_d_G" Type="PYTHON_GLOBAL" ValueType="float">
+         <Values>1.0,5.75,10.5,15.25,20.0</Values>
+      </Parameter>
+      <Parameter CurrentIteration="0" Name="G_small_d_G" Type="PYTHON_GLOBAL" ValueType="int">
+         <Values>-20,-15,-11,-6,-2,2,6,11,15,20</Values>
+      </Parameter>
+      <Parameter CurrentIteration="0" Name="G_J0_G" Type="PYTHON_GLOBAL" ValueType="float">
+         <Values>1.0,13.25,25.5,37.75,50.0</Values>
+      </Parameter>
+      <Parameter CurrentIteration="0" Name="G_interact_range_G" Type="PYTHON_GLOBAL" ValueType="int">
+         <Values>1,2,3,4,5</Values>
+      </Parameter>
+   </ParameterList>
+</ParameterScan>
