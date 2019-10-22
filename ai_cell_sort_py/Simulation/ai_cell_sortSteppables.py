@@ -34,7 +34,7 @@ class save_data(SteppableBasePy):
                   _big_d, _small_d):
         SteppableBasePy.__init__(self,_simulator,_frequency)
         
-        
+        #print '=================\n init \n ==================='
         self.targetVol_light = _targetVol_light
         self.lambdaVol_light = _lambdaVol_light
         self.targetVol_dark =_targetVol_dark
@@ -93,6 +93,11 @@ class save_data(SteppableBasePy):
         self.contact_data_dir = os.path.join(con_dir,'contact_totals.dat')
         self.contact_data = open(self.contact_data_dir,'w+')
         self.contact_data.write('mcs,LL contact, DD contact, LD contact, ML contact, MD contact\n')
+        
+        pop_dir = os.path.join(self.saveDir,'pop_number.dat')
+        self.population = open(pop_dir,'w+')
+        self.population.write('mcs,# of cells\n')
+        
         
     def step(self,mcs):
         
@@ -154,8 +159,14 @@ class save_data(SteppableBasePy):
         self.contact_data.flush()
         os.fsync(self.contact_data)
         
+        
+        
+        self.population.write('%i,%i\n'%(mcs,len(self.cellList)))
+        self.population.flush()
+        os.fsync(self.population)
     def finish(self):
         # this function may be called at the end of simulation - used very infrequently though
         self.contact_m_data.close()
         self.contact_data.close()
+        self.population.close()
     
