@@ -1,7 +1,7 @@
 <ParameterScan version="3.7.0">
    <OutputDirectory>ai_cell_sort_ParameterScan</OutputDirectory>
    <ParameterList Resource="Simulation/ai_cell_sort.py">
-      <Parameter CurrentIteration="0" Name="G_repeat_G" Type="PYTHON_GLOBAL" ValueType="int">
+      <Parameter CurrentIteration="1" Name="G_repeat_G" Type="PYTHON_GLOBAL" ValueType="int">
          <Values>0,1,2,3,4,5,6,7,8,9</Values>
       </Parameter>
       <Parameter CurrentIteration="0" Name="G_targetVol_light_G" Type="PYTHON_GLOBAL" ValueType="float">

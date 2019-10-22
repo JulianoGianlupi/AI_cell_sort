@@ -120,7 +120,7 @@ def configureSimulation(sim):
     RegionElmnt.ElementCC3D("Center",{"x":"128","y":"128","z":"0"})
     RegionElmnt.ElementCC3D("Radius",{},"112")
     RegionElmnt.ElementCC3D("Gap",{},"0")
-    RegionElmnt.ElementCC3D("Width",{},str(int(round(nsqrt(G_targetVol_light_G)))))
+    RegionElmnt.ElementCC3D("Width",{},str(int(round(nsqrt(G_targetVol_light_G)))))#this way they will be about the right size to begin with
     RegionElmnt.ElementCC3D("Types",{},"dark,light")
     
     CompuCellSetup.setSimulationXMLDescription(CompuCell3DElmnt)    
