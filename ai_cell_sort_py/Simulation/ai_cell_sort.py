@@ -53,7 +53,10 @@ G_small_d_G = 1
 if abs(G_small_d_G) > G_big_d_G:
     #this way the inequality is satisfied while keeping the number of repetitions
     #correct. 
-    G_small_d_G = .9*G_big_d_G 
+    if G_small_d_G < 0:
+        G_small_d_G = -.9*G_big_d_G 
+    else:
+        G_small_d_G = .9*G_big_d_G 
 G_J0_G = 12
 
 G_J_ll_G = G_J0_G + G_big_d_G
