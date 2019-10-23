@@ -2,6 +2,15 @@
 
 ----------
 
+## Simulation region and starting condition ##
+
+The simulated area is a 256x256 pixel lattice.
+
+Cells are initialized in a circle of radius 112 centered at the center of the area. The initial cell population
+is 50% light 50% dark. They start as squares with a side length equal to 
+<a href="https://www.codecogs.com/eqnedit.php?latex=\sqrt{V_{tg}}" target="_blank">
+<img src="https://latex.codecogs.com/gif.latex?\sqrt{V_{tg}}" title="\sqrt{V_{tg}}" /></a>, where V<sub>tg</sub> is the 
+bigger of the two target volumes.
 
 ## Contact energy inequalities ##
 
