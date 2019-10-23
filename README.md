@@ -4,7 +4,7 @@
 
 ## Simulation region and starting condition ##
 
-The simulated area is a 256x256 pixel lattice.
+The simulated area is a 2D 256x256 pixel lattice.
 
 Cells are initialized in a circle of radius 112 centered at the center of the area. The initial cell population
 is 50% light 50% dark. They start as squares with a side length equal to 
