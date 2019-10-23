@@ -29,7 +29,7 @@ For this I am using:
 with
 
 - &Delta; > 0; 
-- - &Delta; < &delta; <  &Delta;
+- -&Delta; < &delta; <  &Delta;
 
 ## Interaction range ##
 
