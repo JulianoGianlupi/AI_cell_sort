@@ -82,7 +82,7 @@ def configureSimulation(sim):
     
     PottsElmnt=CompuCell3DElmnt.ElementCC3D("Potts")
     PottsElmnt.ElementCC3D("Dimensions",{"x":"256","y":"256","z":"1"})
-    PottsElmnt.ElementCC3D("Steps",{},"10000")
+    PottsElmnt.ElementCC3D("Steps",{},"10001")
     PottsElmnt.ElementCC3D("Temperature",{},"10.0")
     PottsElmnt.ElementCC3D("NeighborOrder",{},str(G_interact_range_G))
     
