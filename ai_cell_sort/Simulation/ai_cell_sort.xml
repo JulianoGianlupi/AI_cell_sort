@@ -8,7 +8,10 @@
       <Temperature>10.0</Temperature>
       <NeighborOrder>1</NeighborOrder>
    </Potts>
-   
+   <Metadata>
+   <DebugOutputFrequency>100</DebugOutputFrequency>
+</Metadata>
+
    <Plugin Name="CellType">
       
       <!-- Listing all cell types in the simulation -->

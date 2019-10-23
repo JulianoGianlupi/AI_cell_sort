@@ -92,6 +92,8 @@ def configureSimulation(sim):
     PluginElmnt.ElementCC3D("CellType",{"TypeId":"1","TypeName":"dark"})
     PluginElmnt.ElementCC3D("CellType",{"TypeId":"2","TypeName":"light"})
     
+    MetadataElmnt=CompuCell3DElmnt.ElementCC3D("Metadata")
+    MetadataElmnt.ElementCC3D("DebugOutputFrequency",{},"100")
     
     PluginElmnt_1=CompuCell3DElmnt.ElementCC3D("Plugin",{"Name":"Volume"})
     PluginElmnt_1.ElementCC3D("VolumeEnergyParameters",{"CellType":"dark",
