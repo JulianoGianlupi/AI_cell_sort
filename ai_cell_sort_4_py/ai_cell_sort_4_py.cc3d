@@ -1,4 +1,5 @@
 <Simulation version="4.1.0">
    <PythonScript Type="PythonScript">Simulation/ai_cell_sort_4_py.py</PythonScript>
    <Resource Type="Python">Simulation/ai_cell_sort_4_pySteppables.py</Resource>
+   <ParameterScan Type="ParameterScan">Simulation/ParameterScanSpecs.json</ParameterScan>
 </Simulation>

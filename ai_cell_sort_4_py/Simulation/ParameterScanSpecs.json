@@ -1,0 +1,29 @@
+{
+  "version": "4.0.0",
+  "parameter_list": {
+    "repeat": {
+      "code": "np.arange(0,10,dtype=int)"
+    },
+    "targetVol_light": {
+      "values": [ 8.0,22.0,36.0 ]
+    },
+    "lambdaVol_light": {
+      "values": [2.0,9.5,17.0]
+    },
+    "lambdaVol_dark":{
+        "values":[2.0,9.5,17.0]
+    },
+    "big_d":{
+        "values":[5.75,10.5,15.25]
+    },
+    "small_d":{
+        "values":[-11,-6,-2,2,6,11]
+    },
+    "J0":{
+        "values":[13.25,25.5,37.75]
+    },
+    "interact_range":{
+        "values":[1,2,3,4,5]
+    }
+  }
+}

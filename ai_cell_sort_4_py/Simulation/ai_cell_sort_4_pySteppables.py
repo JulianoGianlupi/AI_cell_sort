@@ -104,10 +104,11 @@ class ai_cell_sort_4_pySteppable(SteppableBasePy):
         contact_dm = []
         contact_lm = []
         
-        for cell in self.cellListByType(self.LIGHT):
+        
+        for cell in self.cell_list_by_type(self.LIGHT):
             # 2 int, 2 float
             pos_data.write('%i,%i,%f,%f\n'%(cell.id,cell.type,cell.xCOM,cell.yCOM))
-            for neighbor, commonSurfaceArea in self.getCellNeighborDataList(cell):
+            for neighbor, commonSurfaceArea in self.get_cell_neighbor_data_list(cell):
                 if neighbor:
                     if neighbor.type == self.LIGHT:
                         contact_ll.append(commonSurfaceArea)
@@ -116,9 +117,9 @@ class ai_cell_sort_4_pySteppable(SteppableBasePy):
                 else:
                     contact_lm.append(commonSurfaceArea)
         
-        for cell in self.cellListByType(self.DARK):  
+        for cell in self.cell_list_by_type(self.DARK):  
             pos_data.write('%i,%i,%f,%f\n'%(cell.id,cell.type,cell.xCOM,cell.yCOM))
-            for neighbor, commonSurfaceArea in self.getCellNeighborDataList(cell):
+            for neighbor, commonSurfaceArea in self.get_cell_neighbor_data_list(cell):
                 if neighbor:
                     if neighbor.type == self.DARK:
                         contact_dd.append(commonSurfaceArea)

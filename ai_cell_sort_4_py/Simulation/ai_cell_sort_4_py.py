@@ -10,13 +10,13 @@ global G_interact_range_G
 global G_repeat_G
 global G_big_d_G, G_small_d_G
 
-G_repeat_G = 0
+G_repeat_G = {{repeat}}#0
 
-G_targetVol_light_G = 25.0
+G_targetVol_light_G = {{targetVol_light}}#25.0
 G_targetVol_dark_G = G_targetVol_light_G #to begin with
 
-G_lambdaVol_light_G = 2.0
-G_lambdaVol_dark_G = 2.0
+G_lambdaVol_light_G = {{lambdaVol_light}}#2.0
+G_lambdaVol_dark_G = {{lambdaVol_dark}}#2.0
 
 '''
 * J(L,M) = J(d,M)
@@ -43,9 +43,9 @@ Delta > 0; - Delta < delta <  Delta
 
 '''
 
-G_big_d_G = 2
+G_big_d_G = {{big_d}}#2
 
-G_small_d_G = 1
+G_small_d_G = {{small_d}}#1
 
 if abs(G_small_d_G) > G_big_d_G:
     #this way the inequality is satisfied while keeping the number of repetitions
@@ -54,7 +54,7 @@ if abs(G_small_d_G) > G_big_d_G:
         G_small_d_G = -.9*G_big_d_G 
     else:
         G_small_d_G = .9*G_big_d_G 
-G_J0_G = 12
+G_J0_G = {{J0}}#12
 
 G_J_ll_G = G_J0_G + G_big_d_G
 
@@ -70,7 +70,7 @@ G_J_dm_G = G_J_lm_G
 
 
 
-G_interact_range_G = 1
+G_interact_range_G = {{interact_range}}#1
 
 
 
