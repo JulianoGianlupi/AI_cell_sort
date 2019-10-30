@@ -1,0 +1,13 @@
+repeat = 0
+ interaction range = 1
+ delta = 1
+ Delta = 2
+ J_ll = 14
+ J_dd = 10
+ J_dl = 13
+ J_lm = 28
+ J_dm = 28
+ target vol light = 25.0
+ lambda vol light = 2.0
+ target vol dark = 25.0
+ lambda vol dark = 2.0
