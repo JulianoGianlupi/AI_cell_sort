@@ -70,3 +70,10 @@ disappear, i.e. die)
 - A triplet of: cell ID, cell type, cell center of mass
 
 In addition, every 100 time steps the lattice configuration is saved. 
+
+### Output organization ###
+
+How the output is organized can be seen in 
+
+``` ai_cell_sort_4_py/Simulation/data/ ```
+
