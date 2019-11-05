@@ -18,7 +18,7 @@ For cell sorting contact energies must obey:
 
 * J(L,M) = J(d,M)
 
-* J(L,M) > J(l,l)  => J(l,m) = 2 J(l,l)
+* J(L,M) > J(l,l)  (to make things easy J(l,m) = 2 J(l,l))
 
 * J(l,l) > J(d,l)
 
