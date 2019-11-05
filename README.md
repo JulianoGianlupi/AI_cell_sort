@@ -77,3 +77,15 @@ How the output is organized can be seen in
 
 ``` ai_cell_sort_4_py/Simulation/data/ ```
 
+
+## Questions and todos ##
+
+Questions:
+
+- Changing the interaction range, how do we keep the results the same?
+
+Todo:
+
+- Make Vt(dark) = Vt(light) +- &delta;
+
+
