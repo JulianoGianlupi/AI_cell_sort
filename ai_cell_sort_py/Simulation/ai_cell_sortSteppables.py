@@ -112,7 +112,7 @@ class save_data(SteppableBasePy):
         pos_data_name = 'cell_positional_data_'+str(mcs)+'.dat'
         position_data_dir = os.path.join(self.pos_dir,pos_data_name)
         pos_data = open(position_data_dir,'w+')
-        pos_data.write('ID,type,x COM, y COM\n')
+        pos_data.write('ID,type,x COM, y COM, Same type contact, Oposite type contact, Medium contact\n')
         
         contact_ll = []
         contact_dd = []
@@ -121,25 +121,41 @@ class save_data(SteppableBasePy):
         contact_lm = []
         
         for cell in self.cellListByType(self.LIGHT):
-            # 2 int, 2 float
-            pos_data.write('%i,%i,%f,%f\n'%(cell.id,cell.type,cell.xCOM,cell.yCOM))
+            CC = 0 # cell and same type
+            CD = 0 # cell and different type
+            CM = 0 # cell and medium
             for neighbor, commonSurfaceArea in self.getCellNeighborDataList(cell):
                 if neighbor:
                     if neighbor.type == self.LIGHT:
                         contact_ll.append(commonSurfaceArea)
+                        CC += commonSurfaceArea
                     elif neighbor.type == self.DARK:
                         contact_ld.append(commonSurfaceArea)
+                        CD += commonSurfaceArea
                 else:
                     contact_lm.append(commonSurfaceArea)
+                    CM += commonSurfaceArea
+            # 2 int, 4 float
+            pos_data.write('%i,%i,%f,%f,%f,%f,%f\n'%(cell.id,cell.type,cell.xCOM,cell.yCOM,CC,CD,CM))
+        
+        
         
         for cell in self.cellListByType(self.DARK):  
-            pos_data.write('%i,%i,%f,%f\n'%(cell.id,cell.type,cell.xCOM,cell.yCOM))
+            CC = 0 # cell and same type
+            CD = 0 # cell and different type
+            CM = 0 # cell and medium
             for neighbor, commonSurfaceArea in self.getCellNeighborDataList(cell):
                 if neighbor:
                     if neighbor.type == self.DARK:
                         contact_dd.append(commonSurfaceArea)
+                        CC += commonSurfaceArea
+                    elif neighbor.type == self.LIGHT:
+                        CD += commonSurfaceArea
                 else:
-                    contact_dm.append(commonSurfaceArea)    
+                    contact_dm.append(commonSurfaceArea)  
+                    CM += commonSurfaceArea
+            # 2 int, 4 float
+            pos_data.write('%i,%i,%f,%f,%f,%f,%f\n'%(cell.id,cell.type,cell.xCOM,cell.yCOM,CC,CD,CM))
             
         pos_data.close()
         #self.contact_m_data.write('mcs,LL contact, std,DD contact,std, LD contact,std, ML contact,std, DL contact,std\n')
