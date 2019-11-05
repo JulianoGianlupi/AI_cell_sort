@@ -70,7 +70,7 @@ Outputs are generated every 10 time steps.
 - Population number (for low &lambda; cells may and will 
 disappear, i.e. die)
 - Contact areas: L-L, L-D, D-D. Both totals and means (with error)
-- A triplet of: cell ID, cell type, cell center of mass
+- Positional data, a list of: cell ID, cell type, cell center of mass, cell contact with same-type cells, cell contact with different-type cells, cell contact with medium
 
 In addition, every 100 time steps the lattice configuration is saved. 
 
