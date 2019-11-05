@@ -7,11 +7,14 @@
       <Parameter CurrentIteration="0" Name="G_targetVol_light_G" Type="PYTHON_GLOBAL" ValueType="float">
          <Values>8.0,22.0,36.0</Values>
       </Parameter>
+      <Parameter CurrentIteration="0" Name="G_vol_ratio_G" Type="PYTHON_GLOBAL" ValueType="float">
+         <Values>1.0</Values>
+      </Parameter>
       <Parameter CurrentIteration="0" Name="G_lambdaVol_light_G" Type="PYTHON_GLOBAL" ValueType="float">
          <Values>2.0,9.5,17.0</Values>
       </Parameter>
-      <Parameter CurrentIteration="0" Name="G_lambdaVol_dark_G" Type="PYTHON_GLOBAL" ValueType="float">
-         <Values>2.0,9.5,17.0</Values>
+      <Parameter CurrentIteration="0" Name="G_lam_vol_ratio_G" Type="PYTHON_GLOBAL" ValueType="float">
+         <Values>1.</Values>
       </Parameter>
       <Parameter CurrentIteration="0" Name="G_big_d_G" Type="PYTHON_GLOBAL" ValueType="float">
          <Values>5.75,10.5,15.25</Values>
