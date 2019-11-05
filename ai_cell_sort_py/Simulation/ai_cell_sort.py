@@ -168,7 +168,9 @@ instanceOfsave_data=save_data(_simulator=sim,_frequency=10,
                               _repeat = G_repeat_G,
                               _interact_range = G_interact_range_G,
                               _big_d = G_big_d_G,
-                              _small_d = G_small_d_G)
+                              _small_d = G_small_d_G,
+                              _vol_ratio = G_vol_ratio_G,
+                              _lam_vol_ratio = G_lam_vol_ratio_G)
 
 steppableRegistry.registerSteppable(instanceOfsave_data)
 CompuCellSetup.mainLoop(sim,simthread,steppableRegistry)

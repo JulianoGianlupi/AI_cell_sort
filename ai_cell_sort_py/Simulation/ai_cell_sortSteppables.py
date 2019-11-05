@@ -31,7 +31,8 @@ class save_data(SteppableBasePy):
                   _targetVol_dark,_lambdaVol_dark,
                   _J_ll,_J_dd,_J_dl,_J_lm,_J_dm,
                   _repeat,_interact_range,
-                  _big_d, _small_d):
+                  _big_d, _small_d,
+                  _vol_ratio,   _lam_vol_ratio):
         SteppableBasePy.__init__(self,_simulator,_frequency)
         
         #print '=================\n init \n ==================='
@@ -39,6 +40,10 @@ class save_data(SteppableBasePy):
         self.lambdaVol_light = _lambdaVol_light
         self.targetVol_dark =_targetVol_dark
         self.lambdaVol_dark = _lambdaVol_dark
+        
+        self.vol_ratio = _vol_ratio
+        self.lam_vol_ratio = _lam_vol_ratio
+        
         
         
         self.big_d = _big_d
@@ -74,7 +79,9 @@ class save_data(SteppableBasePy):
                          '\n target vol light = ' + str(self.targetVol_light)+
                          '\n lambda vol light = ' + str(self.lambdaVol_light)+
                          '\n target vol dark = ' + str(self.targetVol_dark)+
-                         '\n lambda vol dark = ' + str(self.lambdaVol_dark)
+                         '\n lambda vol dark = ' + str(self.lambdaVol_dark)+
+                         '\n volume ratio = ' + str(self.vol_ratio) + 
+                         '\n lambda ratio = ' + str(self.lam_vol_ratio)
                          )
         parameters.close()
         self.pos_dir = os.path.join(self.saveDir,'positional')
