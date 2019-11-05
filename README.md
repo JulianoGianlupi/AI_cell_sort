@@ -47,14 +47,17 @@ the contact energy interaction range.
 
 ## Parameters ##
 
-Cells have a target volume and a &lambda; associated.
+Cells have a target volume and a &lambda; associated. The volume parameters for dark cells are set based on the volume parameters for light cells as
+
+- V<sub>tg</sub>(d) = &rho;(V<sub>tg</sub>) x V<sub>tg</sub>(l)  
+- &lambda;(d) = &rho;(&lambda;) x &lambda;(l)
 
 The parameters I'm varying are:
 
-- V<sub>tg</sub>(l) [for now V<sub>tg</sub>(d) = 
-V<sub>tg</sub>(l) ]
+- V<sub>tg</sub>(l) 
+- &rho;(V<sub>tg</sub>) (for now = 1)
 - &lambda;(l)
-- &lambda;(d)
+- &rho;(&lambda;) (for now = 1)
 - &Delta;
 - &delta;
 - J0
@@ -87,6 +90,8 @@ Questions:
 Todo:
 
 - Add individual cell contact data to the positional file.
+
+Done:
 
 - Make Vt(dark) = Vt(light) +- &delta;
 
