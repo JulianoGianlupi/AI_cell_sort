@@ -9,14 +9,21 @@ global G_J_ll_G, G_J_dd_G, G_J_dl_G, G_J_lm_G, G_J_dm_G
 global G_interact_range_G
 global G_repeat_G
 global G_big_d_G, G_small_d_G
+global G_vol_ratio_G, G_lam_vol_ratio_G
 
 G_repeat_G = {{repeat}}#0
 
 G_targetVol_light_G = {{targetVol_light}}#25.0
-G_targetVol_dark_G = G_targetVol_light_G #to begin with
+
+G_vol_ratio_G = {{vol_ratio}} #constant = 1 for now
+
+G_targetVol_dark_G = G_vol_ratio_G * G_targetVol_light_G # Vtg(D) = eps * Vtg(L)
 
 G_lambdaVol_light_G = {{lambdaVol_light}}#2.0
-G_lambdaVol_dark_G = {{lambdaVol_dark}}#2.0
+
+G_lam_vol_ratio_G = {{lam_vol_ratio}} #constant = 1 for now
+
+G_lambdaVol_dark_G = G_lam_vol_ratio_G * G_lambdaVol_light_G#   lmb_v(D) = eps * lmb_v(L)                                ####{{lambdaVol_dark}}#2.0
 
 '''
 * J(L,M) = J(d,M)
