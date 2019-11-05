@@ -86,6 +86,8 @@ Questions:
 
 Todo:
 
+- Add individual cell contact data to the positional file.
+
 - Make Vt(dark) = Vt(light) +- &delta;
 
 
